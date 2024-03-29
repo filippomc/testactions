@@ -1,5 +1,11 @@
 name: 'Deploy'
-on: ['deployment']
+on: 
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'     
+        required: true
+        default: 'production'
 
 jobs:
   deployment:
