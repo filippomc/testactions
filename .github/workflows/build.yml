@@ -4,12 +4,13 @@ on: ['push']
 jobs:
   build:
     runs-on: 'ubuntu-latest'
+    environment: dev
 
     steps:
     - uses: 'actions/checkout@v1'
 
     - name: 'Test'
-      run: 'echo "ok"'
+      run: 'echo ${{ env.VAR_1 }} ${{ vars.VAR_1 }} ${{ env.SECRET_1 }}'
 
     # - name: 'Build'
     #   run: 'docker build -t myapp .'
